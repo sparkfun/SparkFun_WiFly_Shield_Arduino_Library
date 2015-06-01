@@ -12,6 +12,7 @@ class WiFlyDevice {
     void setUart(Stream* newUart);
     void begin();
     void begin(boolean adhocMode);
+    void begin(boolean adhocMode, uint8_t selectPin);
 
     // begin using a static ip (without dhcp)
     // you should provide the ip as a zero terminated string in the

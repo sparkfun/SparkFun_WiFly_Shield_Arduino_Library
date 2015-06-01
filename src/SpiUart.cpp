@@ -49,12 +49,14 @@ struct SPI_UART_cfg SPI_Uart_config = {
 };
 
 
-void SpiUartDevice::begin(unsigned long baudrate) {
+void SpiUartDevice::begin(uint8_t inSelectPin, unsigned long baudrate) {
   /*
    * Initialize SPI and UART communications
    *
    * Uses BAUD_RATE_DEFAULT as baudrate if none is given
    */
+
+  selectPin = inSelectPin;
 
   SPI.begin();
   initUart(baudrate);
@@ -65,7 +67,7 @@ void SpiUartDevice::deselect() {
    * Deslects the SPI device
    */
 
-  digitalWrite(SS, HIGH);
+  digitalWrite(selectPin, HIGH);
 }
 
 
@@ -74,7 +76,7 @@ void SpiUartDevice::select() {
    * Selects the SPI device
    */
 
-  digitalWrite(SS, LOW);
+  digitalWrite(selectPin, LOW);
 }
 
 

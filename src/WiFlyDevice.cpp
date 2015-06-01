@@ -287,6 +287,17 @@ void WiFlyDevice::begin(boolean adhocMode) {
   setConfiguration(adhocMode, NULL);
 }
 
+void WiFlyDevice::begin(boolean adhocMode, uint8_t selectPin) {
+  /*
+   */
+  DEBUG_LOG(1, "Entered WiFlyDevice::begin()");
+
+  if (!bDifferentUart) SPIuart.begin(selectPin);
+  reboot(); // Reboot to get device into known state
+  //requireFlowControl();
+  setConfiguration(adhocMode, NULL);
+}
+
 void WiFlyDevice::beginIP(const char *ip) {
   /*
    */

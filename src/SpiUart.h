@@ -52,7 +52,7 @@
 class SpiUartDevice : public Stream {
   
   public:
-    void begin(unsigned long baudrate = BAUD_RATE_DEFAULT);
+    void begin(uint8_t inSelectPin = SS, unsigned long baudrate = BAUD_RATE_DEFAULT);
     int available();
     int read();
 #if ARDUINO >= 100
@@ -90,6 +90,8 @@ class SpiUartDevice : public Stream {
     void configureUart(unsigned long baudrate);  
     void setBaudRate(unsigned long baudrate);
     boolean uartConnected();
+
+    uint8_t selectPin;
 };
 
 #endif 

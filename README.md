@@ -1,3 +1,5 @@
+_Note: This product has been retired from our catalog.The library is included here for reference._
+
 SparkFun WiFly Shield Arduino Library
 ==========================================
 
